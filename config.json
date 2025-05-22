@@ -1,11 +1,10 @@
-{
-    "arxiv": {
+"arxiv": {
     "command": "uv",
     "args": [
-        "--directory",
-        "C:\\Users\\TEST\\projects\\arxiv_mcp_server",
-        "run", 
-        "server.py"],
+      "--directory",
+      "path/to/your/project",
+      "run",
+      "server.py"
+    ],
     "env": {}
-    }
-}
+  }
