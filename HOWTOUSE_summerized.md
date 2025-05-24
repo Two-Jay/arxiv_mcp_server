@@ -86,7 +86,7 @@ uv sync --dev
    }
    ```
 
-   **주의:** `/path/to/arxiv-mcp-server`를 실제 프로젝트 경로로 변경해야 합니다.
+   **주의:** `/path/to/arxiv-mcp-server`를 실제 프로젝트 경로로 변경해야 합니다. 현재 폴더까지의 경로를 붙여넣으면 됩니다.
 
    **예시 (macOS):**
    ```json
