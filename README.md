@@ -11,15 +11,8 @@ arXiv Open API를 활용한 Model Context Protocol (MCP) 서버입니다. 논문
 
 ## 설치
 
-1. 필요한 패키지 설치:
-```bash
-pip install -r requirements.txt
-```
+이 폴더에 있는 `HOWTOUSE.md` 파일을 참조하세요.
 
-2. 서버 실행:
-```bash
-python arxiv_mcp_server.py
-```
 
 ## 사용 가능한 도구 (Tools)
 

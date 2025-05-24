@@ -1,10 +1,14 @@
-"arxiv": {
-    "command": "uv",
-    "args": [
-      "--directory",
-      "path/to/your/project",
-      "run",
-      "server.py"
-    ],
-    "env": {}
+{
+  "mcpServer": {
+    "arxiv": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/miridih/arxiv_mcp_server",
+        "run",
+        "server.py"
+      ],
+      "env": {}
+    }
   }
+}
