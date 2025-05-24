@@ -122,6 +122,10 @@ Claude Desktop의 설정 파일을 찾아야 합니다. 이 파일은 숨겨진 
 2. `%APPDATA%\Claude` 를 입력하고 Enter
 3. `claude_desktop_config.json` 파일을 찾습니다
 
+
+* 혹은 Claude App / Cursor 설정에서 mcp 추가를 시도할 때 기본적으로 볼 수 있는 json 설정파일을 수정하셔도 좋습니다.
+
+
 **2단계: 설정 파일 편집하기**
 
 파일이 없다면 새로 만들어야 합니다:
@@ -269,6 +273,62 @@ uv run arxiv-mcp-server
 ```
 
 오류 메시지가 나타나면 그 내용을 바탕으로 문제를 해결할 수 있습니다.
+
+**5. "클라우드 작업은 호환되지 않는 하드 링크가 있는 파일에서 수행할 수 없습니다. (os error 396)" 오류**
+
+이 오류는 Windows 환경에서 uv 패키지 매니저가 파일을 하드링크하려다 실패한 상황입니다. 의존성 설치시에 명령을 활용하여 보세요.
+
+```bash
+uv sync --link-mode=copy
+```
+
+혹은
+
+```bash
+uv pip install -r .\requirements.txt --link-mode=copy
+```
+
+**6. "클라우드 작업은 호환되지 않는 하드 링크가 있는 파일에서 수행할 수 없습니다. (os error 396)" 오류**
+
+이 오류는 다른 프로세스가 파일을 사용 중이어서 설치할 수 없다는 Windows 환경에서의 에러입니다. 아래의 해결방법을 시작하여, 가상환경을 재생성해보세요.
+
+1. 반드시 mcp 서버가 설치된 디렉토리로 이동하세요.
+
+2. 아래의 명령어를 순차적으로 실행하세요. (#는 주석입니다. 실행 명령어에 포함시키지 마세요.)
+
+```powershell
+# 기존 가상환경 삭제
+Remove-Item -Recurse -Force .venv
+
+# 새로운 가상환경 생성
+uv venv
+
+# 활성화
+.venv\Scripts\Activate.ps1
+
+# 설치 재시도
+uv install --link-mode=copy
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### 도움이 필요한 경우
 

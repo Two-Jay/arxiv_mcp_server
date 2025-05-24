@@ -145,6 +145,36 @@ MCP 서버가 정상적으로 등록되었다면, ArXiv에서 논문을 검색�
    - Python 3.8 이상이 설치되어 있는지 확인하세요
    - `uv --version`으로 uv가 제대로 설치되었는지 확인하세요
 
+4. **하드 링크 오류 (Windows):**
+   - Windows 환경에서 uv 패키지 매니저가 파일을 하드링크하려다 실패한 경우입니다
+   - 의존성 설치시 다음 명령어를 사용하세요:
+   ```bash
+   uv sync --link-mode=copy
+   ```
+   혹은
+   ```bash
+   uv pip install -r .\requirements.txt --link-mode=copy
+   ```
+
+5. **가상환경 재생성 (Windows):**
+   - 다른 프로세스가 파일을 사용 중이어서 설치할 수 없는 경우입니다
+   - 아래의 해결방법으로 가상환경을 재생성해보세요:
+     1. 반드시 mcp 서버가 설치된 디렉토리로 이동하세요
+     2. 아래 명령어를 순차적으로 실행하세요:
+     ```powershell
+     # 기존 가상환경 삭제
+     Remove-Item -Recurse -Force .venv
+     
+     # 새로운 가상환경 생성
+     uv venv
+     
+     # 활성화
+     .venv\Scripts\Activate.ps1
+     
+     # 설치 재시도
+     uv install --link-mode=copy
+     ```
+
 ### 디버깅
 
 MCP 서버의 로그를 확인하려면 다음 명령어로 직접 실행해볼 수 있습니다:
