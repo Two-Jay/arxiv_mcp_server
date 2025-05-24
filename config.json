@@ -4,7 +4,7 @@
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/miridih/arxiv_mcp_server",
+        "프로젝트/절대/경로로/수정/필요",
         "run",
         "server.py"
       ],
